@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/videoCall"
+        android:title="Video Call"
+        android:icon="@drawable/ic_videocam"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/call"
+        android:title="Call"
+        android:icon="@drawable/ic_call"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/groups"
+        android:title="Groups"/>
+
+    <item android:id="@+id/settings"
+        android:title="Settings"/>
+
+    <item android:id="@+id/logout"
+        android:title="Logout"/>
+
+</menu>
