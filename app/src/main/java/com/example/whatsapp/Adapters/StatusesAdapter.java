@@ -65,7 +65,7 @@ public class StatusesAdapter extends RecyclerView.Adapter<StatusesAdapter.ViewHo
                         .setStoriesList(myStories) // Required
                         .setStoryDuration(3000) // Default is 2000 Millis (2 Seconds)
                         .setTitleText(story.getName()) // Default is Hidden
-                        .setSubtitleText("") // Default is Hidden
+//                        .setSubtitleText("") // Default is Hidden
                         .setTitleLogoUrl(story.getProfileImage()) // Default is Hidden
                         .setStoryClickListeners(new StoryClickListeners() {
                             @Override
