@@ -192,6 +192,8 @@ public class StatusFragment extends Fragment {
                                             @Override
                                             public void onDataChange(@NonNull DataSnapshot statusesSnapshot) {
                                                 if(statusesSnapshot.exists()){
+                                                    stories.clear();
+
                                                     database.getReference("users")
                                                             .child(uId)
                                                             .addValueEventListener(new ValueEventListener() {
