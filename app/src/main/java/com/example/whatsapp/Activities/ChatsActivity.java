@@ -90,12 +90,6 @@ public class ChatsActivity extends AppCompatActivity {
         binding = ActivityChatsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.M){
-            if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 123);
-            }
-        }
-
         init();
         initButtons();
         initAttatchmentButtons();
@@ -341,7 +335,7 @@ public class ChatsActivity extends AppCompatActivity {
 
         Messages message = new Messages(senderId, messageTxt, time);
 
-        sendMessage(message, "");
+        sendMessage(message);
     }
 
     private void sendImageMessage(Uri imageUrl){
@@ -358,7 +352,7 @@ public class ChatsActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(Uri uri) {
                             message.setImageUrl(uri.toString());
-                            sendMessage(message, HP.getImagePathFromURI(ChatsActivity.this, imageUrl));
+                            sendMessage(message);
                             dialog.dismiss();
                         }
                     });
@@ -381,7 +375,7 @@ public class ChatsActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(Uri uri) {
                             message.setImageUrl(uri.toString());
-                            sendMessage(message, HP.getVideoPathFromURI(ChatsActivity.this, imageUrl));
+                            sendMessage(message);
                             dialog.dismiss();
                         }
                     });
@@ -390,7 +384,7 @@ public class ChatsActivity extends AppCompatActivity {
         });
     }
 
-    private void sendMessage(Messages message, String localPath) {
+    private void sendMessage(Messages message) {
         // If receiver is not our friend, add it to our friend list
         checkIsFriend();
 
@@ -418,7 +412,7 @@ public class ChatsActivity extends AppCompatActivity {
                 .setValue(message).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
-                message.setImageUrl(localPath);
+//                message.setImageUrl(localPath);
                 database.getReference("chats")
                         .child(senderRoom)
                         .child("messages")

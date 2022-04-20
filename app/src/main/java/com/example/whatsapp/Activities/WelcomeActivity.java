@@ -3,16 +3,19 @@ package com.example.whatsapp.Activities;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Environment;
+import android.os.Handler;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
@@ -29,6 +32,7 @@ import android.widget.Toast;
 
 import com.example.whatsapp.HP;
 import com.example.whatsapp.databinding.ActivityWelcomeBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -49,6 +53,26 @@ public class WelcomeActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
+
+        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.M){
+            if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED |
+                    checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED |
+                    checkSelfPermission(Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(new String[]{
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.READ_CONTACTS
+                }, 123);
+            }
+        }
+
+        if(FirebaseAuth.getInstance().getCurrentUser() != null) {
+            Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
+            startActivity(intent);
+            finishAffinity();
+        }
+
+
         String privacy = "<a href='http://www.google.com'>Privacy Policy</a>";
         String terms = "<a href='http://www.google.com'>Terms of Service.</a>";
 
@@ -65,5 +89,6 @@ public class WelcomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 }

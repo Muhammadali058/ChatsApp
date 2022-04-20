@@ -37,94 +37,68 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3">
 
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="WhatsApp will send an SMS to verify your"
+                android:text="ChatsApp will send an SMS to verify your \n phone number"
+                android:textAlignment="center"
                 android:textColor="@color/textColor"
                 android:textSize="17sp" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="phone number. "
-                    android:textColor="@color/textColor"
-                    android:textSize="17sp" />
-
-                <TextView
-                    android:id="@+id/number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:shadowColor="@color/linkColor"
-                    android:text="What's my number?"
-                    android:textColorLink="@color/linkColor"
-                    android:textSize="17sp" />
-
-            </LinearLayout>
-
         </LinearLayout>
 
-        <EditText
-            android:id="@+id/country"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/tealGreen2"
-            android:ems="14"
-            android:cursorVisible="false"
-            android:focusable="false"
-            android:inputType="textPersonName"
-            android:text="Pakistan"
-            android:textColor="@color/black"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
             android:gravity="center"
-            android:drawableEnd="@drawable/ic_dropdown"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-        <EditText
-            android:id="@+id/code"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/tealGreen2"
-            android:drawableStart="@drawable/ic_plus_phone"
-            android:ems="3"
-            android:gravity="center"
-            android:inputType="phone"
-            android:text="92"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="@+id/country"
-            app:layout_constraintTop_toBottomOf="@+id/country" />
+            <EditText
+                android:id="@+id/code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/tealGreen2"
+                android:drawableStart="@drawable/ic_plus_phone"
+                android:ems="3"
+                android:gravity="center"
+                android:inputType="phone"
+                android:text="92"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-        <EditText
-            android:id="@+id/phoneNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/tealGreen2"
-            android:ems="10"
-            android:inputType="phone"
-            android:textColor="@color/black"
-            app:layout_constraintEnd_toEndOf="@+id/country"
-            app:layout_constraintHorizontal_bias="1"
-            app:layout_constraintStart_toEndOf="@+id/code"
-            app:layout_constraintTop_toTopOf="@+id/code" />
+            <EditText
+                android:id="@+id/phoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/tealGreen2"
+                android:ems="10"
+                android:maxLength="11"
+                android:inputType="phone"
+                android:textColor="@color/black"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toEndOf="@+id/code"
+                app:layout_constraintTop_toTopOf="@+id/code" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:text="Carrier SMS charges may apply"
             android:textColor="@color/gray"
             android:textSize="17sp"
-            app:layout_constraintEnd_toEndOf="@+id/country"
-            app:layout_constraintStart_toStartOf="@+id/country"
-            app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
         <Button
             android:id="@+id/nextBtn"

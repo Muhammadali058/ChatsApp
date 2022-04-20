@@ -192,7 +192,8 @@ public class ChatsFragment extends Fragment {
                             boolean isExists = false;
                             String name = null;
                             for(Contacts contact : contacts){
-                                if(phoneNumber.equals(contact.getPhoneNumber())){
+                                String number = contact.getPhoneNumber();
+                                if(phoneNumber.contains(number)){
                                     isExists = true;
                                     name = contact.getName();
                                     break;

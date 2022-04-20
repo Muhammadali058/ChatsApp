@@ -143,7 +143,9 @@ public class MessagesAdapter extends RecyclerView.Adapter{
             viewHolder.binding.videoLayout.setVisibility(View.GONE);
 
             viewHolder.binding.imageTime.setText(HP.getFormatedTime(message.getTime()));
-            viewHolder.binding.image.setImageURI(Uri.fromFile(new File(message.getImageUrl())));
+            Glide.with(context).load(message.getImageUrl())
+                    .placeholder(R.drawable.avatar)
+                    .into(viewHolder.binding.image);
         }
 
         // When Video
@@ -207,20 +209,6 @@ public class MessagesAdapter extends RecyclerView.Adapter{
                     .placeholder(R.drawable.avatar)
                     .into(viewHolder.binding.image);
 
-//            viewHolder.binding.image.setOnLongClickListener(new View.OnLongClickListener() {
-//                @Override
-//                public boolean onLongClick(View v) {
-//                    StorageReference myStorage = storage.getReferenceFromUrl(message.getImageUrl());
-//                    final File rootPath = new File(context.getExternalFilesDir(""), "Whatsapp Images");
-//                    if (!rootPath.exists()) {
-//                        rootPath.mkdirs();
-//                    }
-//
-//                    final File localFile = new File(rootPath, Calendar.getInstance().getTimeInMillis() + ".jpg");
-//                    myStorage.getFile(localFile);
-//                    return true;
-//                }
-//            });
         }
 
         // When Video

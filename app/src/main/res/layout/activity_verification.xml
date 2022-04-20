@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     tools:context=".Activities.VerificationActivity"
-    tools:ignore="SpeakableTextPresentCheck">
-
+    tools:ignore="SpeakableTextPresentCheck"
+    android:padding="10dp">
 
     <TextView
         android:id="@+id/verifyPhoneNumber"
@@ -37,7 +37,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Waiting to automatically detect and SMS sent to"
+            android:text="Enter code for registration sent to"
             android:textColor="@color/textColor"
             android:textSize="17sp" />
 
@@ -55,142 +55,85 @@
                 android:textColor="@color/textColor"
                 android:textSize="17sp" />
 
-            <TextView
-                android:id="@+id/wrongNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:shadowColor="@color/linkColor"
-                android:text="Wrong number?"
-                android:textColorLink="@color/linkColor"
-                android:textSize="17sp" />
-
         </LinearLayout>
 
     </LinearLayout>
 
-    <com.mukesh.OtpView
+    <EditText
         android:id="@+id/otp_view"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/tealGreen2"
+        android:hint="Enter code"
+        android:textAlignment="center"
         android:inputType="number"
-        android:itemBackground="@color/white"
-        android:textColor="@color/gray"
-        app:OtpItemCount="6"
-        app:OtpLineColor="@color/tealGreen2"
-        app:OtpViewType="line"
-        app:OtpItemWidth="30dp"
-        app:OtpLineWidth="2dp"
-        app:OtpItemSpacing="2dp"
-        app:OtpState_filled="true"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         tools:ignore="SpeakableTextPresentCheck" />
 
-    <TextView
-        android:id="@+id/textView4"
+    <Button
+        android:id="@+id/registerBtn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Enter 6-digit code"
-        android:textColor="@color/gray"
-        android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout"
-        app:layout_constraintTop_toBottomOf="@+id/otp_view" />
+        android:layout_height="60dp"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/tealGreen2"
+        android:text="Register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/otp_view"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="20dp"
         android:padding="10dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4">
+        app:layout_constraintTop_toBottomOf="@+id/registerBtn">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="horizontal"
-            android:padding="10dp"
-            android:gravity="center">
+            android:padding="10dp">
 
 
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_chat"
+                android:layout_marginLeft="5dp"
                 android:layout_marginTop="2dp"
-                android:layout_marginLeft="5dp"
                 android:scaleType="centerCrop"
-                app:tint="@color/lightGray"/>
+                android:src="@drawable/ic_chat"
+                app:tint="@color/lightGray" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/resendSMS"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginLeft="20dp"
+                android:layout_weight="1"
                 android:text="Resend SMS"
-                android:textColor="@color/lightGray"
-                android:textSize="16sp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/time1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
-                android:text="1:04" />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginVertical="10dp"
-            android:background="@color/lightGray"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            android:gravity="center">
-
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_call"
-                android:layout_marginTop="1dp"
-                android:layout_marginLeft="5dp"
-                android:scaleType="centerCrop"
-                app:tint="@color/lightGray"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_weight="1"
-                android:text="Call me"
                 android:textColor="@color/lightGray"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/time2"
+                android:id="@+id/timer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
-                android:text="1:04" />
+                android:text="0:00" />
 
         </LinearLayout>
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

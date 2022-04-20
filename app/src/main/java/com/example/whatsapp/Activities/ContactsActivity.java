@@ -58,12 +58,6 @@ public class ContactsActivity extends AppCompatActivity {
         dialog.setMessage("Loading contacts...");
         dialog.setCancelable(false);
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (checkSelfPermission(Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
-                requestPermissions(new String[]{Manifest.permission.READ_CONTACTS}, 123);
-            }
-        }
-
         database = FirebaseDatabase.getInstance();
         users = new ArrayList<>();
         usersFullList = new ArrayList<>();

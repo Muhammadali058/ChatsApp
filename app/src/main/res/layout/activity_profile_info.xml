@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     tools:context=".Activities.ProfileInfoActivity"
-    tools:ignore="SpeakableTextPresentCheck">
+    tools:ignore="SpeakableTextPresentCheck"
+    android:padding="10dp">
 
     <TextView
         android:id="@+id/textView3"
@@ -50,7 +51,6 @@
         android:orientation="horizontal"
         android:gravity="center"
         android:layout_marginTop="50dp"
-        android:paddingHorizontal="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image">

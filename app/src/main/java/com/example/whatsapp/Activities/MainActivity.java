@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.logout:
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(MainActivity.this, SplashActivity.class);
+                Intent intent = new Intent(MainActivity.this, WelcomeActivity.class);
                 startActivity(intent);
                 finishAffinity();
                 break;

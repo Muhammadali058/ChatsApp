@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="350dp"
-    android:layout_height="220dp"
+    android:layout_width="300dp"
+    android:layout_height="200dp"
     android:padding="20dp">
 
     <LinearLayout
@@ -15,30 +15,30 @@
             android:layout_height="wrap_content"
             android:text="You entered the phone number:"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:text="+923030454625"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:text="Is this OK, or would you like to edit the number?"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="10dp">
 
             <TextView
                 android:id="@+id/editBtn"
@@ -49,7 +49,7 @@
                 android:clickable="true"
                 android:text="EDIT"
                 android:textColor="@color/tealGreen2"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/okBtn"
@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:text="OK"
                 android:textColor="@color/tealGreen2"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 android:background="?android:attr/selectableItemBackground"
                 android:clickable="true"
                 android:layout_alignParentRight="true"/>

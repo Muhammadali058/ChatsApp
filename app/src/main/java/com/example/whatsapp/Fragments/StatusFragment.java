@@ -100,28 +100,30 @@ public class StatusFragment extends Fragment {
             public void onClick(View v) {
                 ArrayList<MyStory> myStories = new ArrayList<>();
 
-                for(Status status : userStatuses) {
+                for (Status status : userStatuses) {
                     myStories.add(new MyStory(status.getImageUrl(), new Date(status.getTime())));
                 }
 
-                new StoryView.Builder(getActivity().getSupportFragmentManager())
-                        .setStoriesList(myStories) // Required
-                        .setStoryDuration(3000) // Default is 2000 Millis (2 Seconds)
-                        .setTitleText(user.getName()) // Default is Hidden
-                        .setTitleLogoUrl(user.getImageUrl()) // Default is Hidden
-                        .setStoryClickListeners(new StoryClickListeners() {
-                            @Override
-                            public void onDescriptionClickListener(int position) {
-                                //your action
-                            }
+                if (userStatuses.size() > 0) {
+                    new StoryView.Builder(getActivity().getSupportFragmentManager())
+                            .setStoriesList(myStories) // Required
+                            .setStoryDuration(3000) // Default is 2000 Millis (2 Seconds)
+                            .setTitleText(user.getName()) // Default is Hidden
+                            .setTitleLogoUrl(user.getImageUrl()) // Default is Hidden
+                            .setStoryClickListeners(new StoryClickListeners() {
+                                @Override
+                                public void onDescriptionClickListener(int position) {
+                                    //your action
+                                }
 
-                            @Override
-                            public void onTitleIconClickListener(int position) {
-                                //your action
-                            }
-                        }) // Optional Listeners
-                        .build() // Must be called before calling show method
-                        .show();
+                                @Override
+                                public void onTitleIconClickListener(int position) {
+                                    //your action
+                                }
+                            }) // Optional Listeners
+                            .build() // Must be called before calling show method
+                            .show();
+                }
             }
         });
 

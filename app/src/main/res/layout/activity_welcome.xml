@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:fontFamily="sans-serif-medium"
-        android:text="Welcome to WhatsApp"
+        android:text="Welcome to ChatsApp"
         android:textColor="@color/tealGreen2"
         android:textSize="33sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,7 +36,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/agreeBtn"
@@ -104,32 +104,32 @@
         android:paddingHorizontal="50dp"
         android:paddingVertical="11dp"
         android:text="agree and continue"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="3dp"
-        android:text="from"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:fontFamily="@font/helvetica_bold"
-        android:letterSpacing=".1"
-        android:text="FACEBOOK"
-        android:textColor="@color/lightGreen"
-        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView2"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="3dp"-->
+<!--        android:text="from"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/textView"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/textView"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/textView" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="30dp"-->
+<!--        android:fontFamily="@font/helvetica_bold"-->
+<!--        android:letterSpacing=".1"-->
+<!--        android:text="FACEBOOK"-->
+<!--        android:textColor="@color/lightGreen"-->
+<!--        android:textSize="16sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

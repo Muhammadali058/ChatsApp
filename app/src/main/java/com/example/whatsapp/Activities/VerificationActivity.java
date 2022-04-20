@@ -30,25 +30,63 @@ public class VerificationActivity extends AppCompatActivity {
     FirebaseAuth auth;
     String verificationId;
     ProgressDialog dialog;
+    String phoneNumber;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityVerificationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
+        init();
+        sendCode();
+    }
+
+    private void init(){
         auth = FirebaseAuth.getInstance();
-        String wrongNumber = "<a href='http://www.google.com'>Wrong Number?</a>";
-        binding.wrongNumber.setText(HP.removeUnderline(wrongNumber));
 
-        String phoneNumber = getIntent().getStringExtra("phoneNumber");
+        phoneNumber = getIntent().getStringExtra("phoneNumber");
         binding.verifyPhoneNumber.setText("Verify " + phoneNumber);
-        binding.phoneNumber.setText(phoneNumber + ". ");
+        binding.phoneNumber.setText(phoneNumber);
 
         dialog = new ProgressDialog(this);
         dialog.setMessage("Sending code...");
         dialog.setCancelable(false);
 
+        binding.registerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(binding.otpView.getText().length() > 0) {
+                    String code = binding.otpView.getText().toString();
+
+                    PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
+                    auth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()){
+                                Intent intent = new Intent(VerificationActivity.this, ProfileInfoActivity.class);
+                                intent.putExtra("phoneNumber", phoneNumber);
+                                startActivity(intent);
+                                finishAffinity();
+                            }else {
+                                Toast.makeText(VerificationActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }
+            }
+        });
+
+        binding.resendSMS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(binding.timer.getText().equals("0:00"))
+                    sendCode();
+            }
+        });
+    }
+
+    private void sendCode(){
         PhoneAuthOptions options =
                 PhoneAuthOptions.newBuilder(auth)
                         .setPhoneNumber(phoneNumber)
@@ -62,7 +100,8 @@ public class VerificationActivity extends AppCompatActivity {
 
                             @Override
                             public void onVerificationFailed(@NonNull FirebaseException e) {
-
+                                dialog.dismiss();
+                                finish();
                             }
 
                             @Override
@@ -93,13 +132,12 @@ public class VerificationActivity extends AppCompatActivity {
 
                                         String time = minute + ":" + second;
 
-                                        binding.time1.setText(time);
-                                        binding.time2.setText(time);
+                                        binding.timer.setText(time);
                                     }
 
                                     @Override
                                     public void onFinish() {
-
+                                        binding.timer.setText("0:00");
                                     }
                                 }.start();
 
@@ -111,25 +149,6 @@ public class VerificationActivity extends AppCompatActivity {
         dialog.show();
         PhoneAuthProvider.verifyPhoneNumber(options);
 
-        binding.otpView.setOtpCompletionListener(new OnOtpCompletionListener() {
-            @Override
-            public void onOtpCompleted(String otp) {
-                PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, otp);
-                auth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            Intent intent = new Intent(VerificationActivity.this, ProfileInfoActivity.class);
-                            intent.putExtra("phoneNumber", phoneNumber);
-                            startActivity(intent);
-                            finishAffinity();
-                        }else {
-                            Toast.makeText(VerificationActivity.this, "Failed", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-            }
-        });
-
     }
+
 }
