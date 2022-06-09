@@ -48,6 +48,7 @@
         <entry key="..\:/Users/HP/Documents/AndroidStudioProjects/Whatsapp/app/src/main/res/menu/contacts_menu.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/HP/Documents/AndroidStudioProjects/Whatsapp/app/src/main/res/menu/country_menu.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/HP/Documents/AndroidStudioProjects/Whatsapp/app/src/main/res/menu/main_menu.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/OK/Documents/AndroidStudioProjects/Whatsapp/app/src/main/res/layout/activity_chats.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/OK/Documents/AndroidStudioProjects/Whatsapp/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/OK/Documents/AndroidStudioProjects/Whatsapp/app/src/main/res/layout/activity_phone_number.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/OK/Documents/AndroidStudioProjects/Whatsapp/app/src/main/res/layout/activity_profile_info.xml" value="0.36666666666666664" />
@@ -55,7 +56,9 @@
         <entry key="..\:/Users/OK/Documents/AndroidStudioProjects/Whatsapp/app/src/main/res/layout/activity_verification.xml" value="0.29814814814814816" />
         <entry key="..\:/Users/OK/Documents/AndroidStudioProjects/Whatsapp/app/src/main/res/layout/activity_welcome.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/OK/Documents/AndroidStudioProjects/Whatsapp/app/src/main/res/layout/confirm_number_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/OK/Documents/AndroidStudioProjects/Whatsapp/app/src/main/res/layout/fragment_chats.xml" value="0.33" />
         <entry key="..\:/Users/OK/Documents/AndroidStudioProjects/Whatsapp/app/src/main/res/layout/fragment_status.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/OK/Documents/AndroidStudioProjects/Whatsapp/app/src/main/res/layout/friends_holder.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
